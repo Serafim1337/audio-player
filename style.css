@@ -12,23 +12,24 @@ body {
 .background {
   width: 100%;
   height: 100vh;
-  background: url(assets/img/1.jpg) center no-repeat;
+  background: url(assets/img/0.jpg) center no-repeat;
   background-size: cover;
   filter: blur(10px);
-  transition: ease 2s;
+  transition: ease 1s;
 }
 
 .tracks {
   position: absolute;
-  top: 50%;
+  top: 40%;
   transform: translateY(-50%);
-  transition: ease 2s;
+  transition: ease 1s;
 }
 
 .tracks img {
   width: 300px;
   display: block;
   border-radius: 20px;
+  transition: ease 1s;
 }
 
 /*!--------------------------- control buttons  */
@@ -51,6 +52,32 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex-direction: column;
+}
+
+.timeline {
+  width: 700px;
+  height: 20px;
+  margin-bottom: 40px;
+  background-color: #fff;
+
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: ease 2s;
+}
+
+.timeline:hover {
+  cursor: pointer;
+}
+
+.progress {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
 }
 
 /*!---------------------------------- left button  */
@@ -205,14 +232,25 @@ body {
 
 /*!------------------------ media queries  */
 
+@media (max-width: 740px) {
+  .timeline {
+    width: 500px;
+    margin: 0;
+  }
+}
+
 @media (max-width: 610px) {
   .tracks {
-    top: 30%;
+    top: 25%;
   }
 
   .left,
   .right {
     transform: scale(0.4, 0.4);
+  }
+
+  .timeline {
+    width: 400px;
   }
 
   .controls-container {
@@ -230,6 +268,10 @@ body {
   .left,
   .right {
     width: 160px;
+  }
+
+  .timeline {
+    width: 300px;
   }
 }
 

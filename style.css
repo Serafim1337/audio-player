@@ -18,6 +18,19 @@ body {
   transition: ease 2s;
 }
 
+.tracks {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: ease 2s;
+}
+
+.tracks img {
+  width: 300px;
+  display: block;
+  border-radius: 20px;
+}
+
 /*!--------------------------- control buttons  */
 
 .clicked {
@@ -25,7 +38,7 @@ body {
     contrast(87%);
 }
 
-.container {
+.controls-container {
   display: flex;
   justify-content: space-between;
   max-width: 1440px;
@@ -94,6 +107,7 @@ body {
 }
 
 /*!---------------------------- right button  */
+
 .right:before {
   content: "";
   position: absolute;
@@ -134,7 +148,9 @@ body {
     margin-left: 87px;
   }
 }
+
 /*!-------------------------- play button  */
+
 .animation {
   height: 200px;
   width: 200px;
@@ -190,12 +206,16 @@ body {
 /*!------------------------ media queries  */
 
 @media (max-width: 610px) {
+  .tracks {
+    top: 30%;
+  }
+
   .left,
   .right {
     transform: scale(0.4, 0.4);
   }
 
-  .container {
+  .controls-container {
     flex-wrap: wrap;
     justify-content: center;
   }
@@ -210,7 +230,6 @@ body {
   .left,
   .right {
     width: 160px;
-    /* transform: scale(0.3, 0.3); */
   }
 }
 

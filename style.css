@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Fredoka;
+  src: url(assets/fonts/FredokaOne-Regular.ttf);
+}
+
 body {
   margin: 0;
   background-color: #58555a;
@@ -23,6 +28,17 @@ body {
   top: 40%;
   transform: translateY(-50%);
   transition: ease 1s;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#track-name {
+  font-family: Fredoka;
+  font-size: 30px;
+  color: #fbf37c;
 }
 
 .tracks img {
@@ -78,6 +94,7 @@ body {
   border-radius: 50%;
   background-color: #fff;
   position: absolute;
+  /* transition: ease 1s; */
 }
 
 /*!---------------------------------- left button  */

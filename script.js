@@ -42,7 +42,11 @@ function timelineHandler(event) {
 
   let progressCoordinateX =
     event.clientX - event.target.offsetLeft - progress.offsetWidth / 2 + "px";
+
   progress.style.left = progressCoordinateX;
+
+  const timeToSet = (progressCoordinateInside / timelineWidth) * audio.duration;
+  audio.currentTime = timeToSet;
 }
 
 //!-------------------- pause checker
@@ -63,6 +67,45 @@ let currentTrack = 0;
 let playlist = {
   0: "assets/audio/0.mp3",
   1: "assets/audio/1.mp3",
+};
+
+let trackNames = {
+  0: "Hollywood Undead - Riot",
+  1: "Bicep - Glue",
+};
+
+const trackName = document.querySelector("#track-name");
+trackName.textContent = `${trackNames[currentTrack]}`;
+
+//!------ changing track on the end automatically
+audio.onended = function () {
+  currentTrack++;
+  if (playlist[currentTrack]) {
+    audio.src = playlist[currentTrack];
+    audio.play();
+  } else {
+    currentTrack = 0;
+    audio.src = playlist[0];
+    audio.play();
+  }
+  currentBackground.style.backgroundImage = `url("assets/img/${currentTrack}.jpg")`;
+  currentTrackImage.src = `assets/img/${currentTrack}.jpg`;
+  trackName.innerHTML = `${trackNames[currentTrack]}`;
+  progress.style.left = "";
+};
+
+//!------ online progress changing
+audio.ontimeupdate = function () {
+  if (
+    progress.getBoundingClientRect().left <=
+    timeline.getBoundingClientRect().right
+  ) {
+    progress.style.left =
+      (audio.currentTime / audio.duration) *
+        timeline.getBoundingClientRect().width -
+      progress.offsetWidth / 2 +
+      "px";
+  }
 };
 
 function audioOperator(event) {
@@ -103,6 +146,8 @@ function audioOperator(event) {
 
       currentBackground.style.backgroundImage = `url("assets/img/${currentTrack}.jpg")`;
       currentTrackImage.src = `assets/img/${currentTrack}.jpg`;
+      trackName.innerHTML = `${trackNames[currentTrack]}`;
+      progress.style.left = "";
 
       break;
 
@@ -127,6 +172,8 @@ function audioOperator(event) {
 
       currentBackground.style.backgroundImage = `url("assets/img/${currentTrack}.jpg")`;
       currentTrackImage.src = `assets/img/${currentTrack}.jpg`;
+      trackName.innerHTML = `${trackNames[currentTrack]}`;
+      progress.style.left = "";
 
       break;
   }

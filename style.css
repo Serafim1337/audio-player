@@ -250,15 +250,122 @@ body {
 /*!------------------------ media queries  */
 
 @media (max-width: 740px) {
+  .tracks {
+    top: 45%;
+  }
+
   .timeline {
     width: 500px;
     margin: 0;
+    margin-bottom: 30px;
+  }
+
+  .controls {
+    margin-bottom: 60px;
+  }
+
+  .left,
+  .right {
+    height: 100px;
+    width: 100px;
+  }
+
+  .left:before {
+    height: 80px;
+    margin-left: 70px;
+    margin-top: 10px;
+    border-left: 20px solid lightgrey;
+  }
+
+  .left:after {
+    height: 0px;
+    width: 0px;
+    margin-left: 0;
+    margin-top: 10px;
+    border-right: 55px solid lightgrey;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+  }
+
+  .right:before {
+    content: "";
+    position: absolute;
+    height: 80px;
+    width: 0px;
+    margin-left: 23px;
+    margin-top: 10px;
+    border-left: 20px solid lightgrey;
+  }
+
+  .right:after {
+    content: "";
+    position: absolute;
+    height: 0px;
+    width: 0px;
+    margin-left: 55px;
+    margin-top: 10px;
+    border-left: 55px solid lightgrey;
+    border-top: 40px solid transparent;
+    border-bottom: 40px solid transparent;
+  }
+
+  @keyframes rig {
+    0% {
+      margin-left: 55px;
+    }
+    50% {
+      margin-left: 41px;
+    }
+    100% {
+      margin-left: 55px;
+    }
+  }
+
+  .animation {
+    height: 100px;
+    width: 100px;
+  }
+
+  #first.play {
+    height: 40px;
+    margin-left: 23px;
+    margin-top: 10px;
+    border-left: 37px solid lightgrey;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+
+  #second.play {
+    height: 0px;
+    margin-left: 60px;
+    margin-top: 30px;
+    border-left: 37px solid lightgrey;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+
+  #first.pause {
+    height: 80px;
+    margin-left: 23px;
+    margin-top: 10px;
+    border-left: 23px solid lightgrey;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
+  }
+
+  #second.pause {
+    height: 80px;
+    margin-left: 55px;
+    margin-top: 10px;
+    border-left: 23px solid lightgrey;
+    border-top: 0px solid transparent;
+    border-bottom: 0px solid transparent;
   }
 }
 
 @media (max-width: 610px) {
   .tracks {
-    top: 25%;
+    top: 45%;
   }
 
   .left,
@@ -276,25 +383,33 @@ body {
   }
 
   .animation {
-    order: 1;
     transform: scale(0.8, 0.8);
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 450px) {
+  .tracks {
+    top: 35%;
+  }
+
   .left,
   .right {
-    width: 160px;
+    width: 110px;
   }
 
   .timeline {
     width: 300px;
   }
-}
 
-@media (max-width: 370px) {
-  .left,
-  .right {
-    width: 120px;
+  #track-image {
+    width: 250px;
+  }
+
+  #track-name {
+    font-size: 25px;
+  }
+
+  .controls {
+    margin-bottom: 100px;
   }
 }

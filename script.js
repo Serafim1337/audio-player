@@ -74,6 +74,7 @@ let trackNames = {
   1: "Bicep - Glue",
 };
 
+const trackTiming = document.querySelector("#track-timing");
 const trackName = document.querySelector("#track-name");
 trackName.textContent = `${trackNames[currentTrack]}`;
 
